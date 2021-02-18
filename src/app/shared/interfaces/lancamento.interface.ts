@@ -1,11 +1,11 @@
-import { PlanoConta } from './plano-conta.interface';
+import { PlanosContaResponse } from './plano-conta.interface';
 
 export interface Lancamento {
     conta: number;
     data: string;
     descricao: string;
     id: number;
-    planoConta: PlanoConta;
+    planoConta: PlanosContaResponse;
     tipo: string;
     valor: number;
   }

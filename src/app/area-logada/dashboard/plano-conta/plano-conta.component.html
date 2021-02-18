@@ -1,1 +1,11 @@
-<p>plano-conta works!</p>
+<div class="planos-conta-cards">
+    <div class="card" *ngFor="let planoConta of planosConta">
+        <div class="card-body">
+            <h5 class="card-title">{{ planoConta.descricao }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ planoConta.tipoMovimento }}</h6>
+            <p class="card-text">
+                {{ planoConta.id }} <br> {{ planoConta.login }}
+            </p>
+        </div>
+    </div>
+</div>

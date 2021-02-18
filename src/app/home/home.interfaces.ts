@@ -5,3 +5,4 @@ export interface DadosCadastrais{
     nome: string,
     senha: string
 }
+

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { finalize, take } from 'rxjs/operators';
 import { Usuario } from 'src/app/shared/interfaces/usuario.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { PlanoContaService } from 'src/app/shared/services/plano-conta.service';
 
 import { PaginasPossiveis } from './dashboard.constants';
 import { DashboardCredentials, DashboardResponse } from './dashboard.interfaces';
@@ -28,6 +29,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private dashboardService: DashboardService,
+    private planosContaService: PlanoContaService,
     private router: Router
   ) { }
   
@@ -35,6 +37,7 @@ export class DashboardComponent implements OnInit {
     this.curday = this.dashboardService.getToday();
     this.usuario = this.authService.getUsuario()
     this.fullDate = this.dashboardService.getCompleteDate();
+    this.planosContaService.setPlanosConta();
     this.getDashboard()
   }
 

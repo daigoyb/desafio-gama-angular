@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PlanosContaResponse } from '../../../shared/interfaces/plano-conta.interface';
+import { PlanoContaService } from '../../../shared/services/plano-conta.service';
+
 @Component({
   selector: 'app-plano-conta',
   templateUrl: './plano-conta.component.html',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanoContaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private planosContaService: PlanoContaService
+  ) { }
 
-  ngOnInit(): void {
+  planosConta: PlanosContaResponse[] = this.planosContaService.getAllPlanosConta()
+
+  ngOnInit() {
   }
+
+
+
+
 
 }

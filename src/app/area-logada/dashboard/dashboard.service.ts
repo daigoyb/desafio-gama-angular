@@ -38,9 +38,7 @@ export class DashboardService {
     })
   }
 
-  getPlanosConta(credentials: any){
-    
-  }
+  
 
   getToday():DashboardCredentials{
     const today = new Date();
