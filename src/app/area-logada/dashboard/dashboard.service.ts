@@ -38,6 +38,10 @@ export class DashboardService {
     })
   }
 
+  getPlanosConta(credentials: any){
+    
+  }
+
   getToday():DashboardCredentials{
     const today = new Date();
     const dd = String(today.getDate()).padStart(2,'0')
