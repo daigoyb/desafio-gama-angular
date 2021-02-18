@@ -1,0 +1,56 @@
+.main{
+    background-color: #8C52E5;
+    height: 100vh;
+}
+
+.main-child-login{
+    border: 1px solid #8C52E5;
+    height: 280px;
+    width: 50%;
+    margin: auto;
+}
+.form-section{
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    background-color: #FBFBFB;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: -20%;
+}
+.forgot-form{
+width: 80%;
+margin: auto;
+display: flex;
+flex-direction: column;
+}  
+
+#error-img{
+    width: 30%;
+    margin: auto;
+    margin-top: 5%;
+}
+#form-title-error{
+
+    font-size: 20px;
+    color: #8C52E5;
+    font-weight: 500;
+}
+#error-button-link{
+    background-color: #68DE5A;
+    height: 42px;
+    border: 0;
+    border-radius: 30px;
+    font-size: 19px;
+    color: #fff;
+  }
+  #error-button{
+    background-color: #68DE5A;
+    height: 42px;
+    border: 0;
+    border-radius: 30px;
+    font-size: 19px;
+    color: #fff;
+    
+  }

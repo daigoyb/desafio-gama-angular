@@ -1,0 +1,51 @@
+<main>
+    <div class="container pt-5 text-center login-form">
+        <div class="container mt-3">
+            <a [routerLink]="['/home']">
+                <img src="../../assets/logo.png" alt="">
+            </a>
+        </div>
+        <div class="container pt-5">
+            <form #form="ngForm" id="form-signin" (submit)="onSubmitValidation(form)">
+                <div class="form-group mb-3">
+                    <input autocomplete="username" type="text" class="form-control" placeholder="Login"
+                    [class.is-invalid]="exibeErro('usuario', form)" #usuarioInput
+                    [(ngModel)]="usuario" name="usuario"
+                    required>
+                    <div class="invalid-feedback">
+                        Usuario Inválido
+                    </div>
+                </div>
+
+
+                <div class="form-group mb-3">
+                    <input autocomplete="current-password" type="password" class="form-control" placeholder="Senha"
+                    [(ngModel)]="senha" name="senha"
+                    [class.is-invalid]="exibeErro('senha', form)" #senhaInput
+                    required minlength="3">
+                    <div class="invalid-feedback" *ngIf="form.controls?.senha?.errors?.required">
+                        Senha não preenchida
+                    </div>
+                    <div class="invalid-feedback" *ngIf="form.controls?.senha?.errors?.minlength">
+                        Senha muito curta
+                    </div>
+                </div>
+
+
+                <ng-template #spinner>
+                    <div class="spinner-border mt-3 text-light" role="status">
+                        <span class="sr-only"></span>
+                    </div>
+                    <p class="text-light mt-1">Loading...</p>
+                </ng-template>
+            
+                <button type="submit" class="btn btn-primary mt-3" id="btn-login" *ngIf="!isLoading; else spinner">
+                    Entrar
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+        <p>Não tem uma conta ainda? <a [routerLink]="['/home']" routerLinkActive="active" >Cadastre-se aqui! :)</a></p>
+    </div>
+</main>
+<app-footer></app-footer>

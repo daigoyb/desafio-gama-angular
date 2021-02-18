@@ -1,0 +1,51 @@
+main{
+    background-color: #8C52E5;
+}
+
+button{
+    line-height: 1;
+    background-color: inherit;
+    border-color: #68DE5A;
+    width: 150px;
+    padding: 15px;
+    &:hover{
+        background-color: #68DE5A;
+        border-color:white;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a{
+    color: #68DE5A;
+}
+
+input{
+    line-height: 1;
+    padding: 25px;
+    width: 100%;
+    &:focus{
+        border-color: #68DE5A;
+    }
+}
+
+#form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    button{
+        line-height: 1;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}

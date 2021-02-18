@@ -1,0 +1,98 @@
+
+<header>
+    <div class="child-1-header">
+       <a [routerLink]="['/']" routerLinkActive="active" > <img src="../../assets/headerlogo.svg" /></a>
+    </div>
+    <div class="child-2-header">
+      
+    </div>
+</header>
+<div class="hero" *ngIf="!userSuccess else usuarioCriadoBlock">
+    <div class="child-1-hero">
+        <img src="../../assets/logo.png" alt="">
+        <p id="child-1-text-hero">Gama Bank é um projeto de nossos alunos.</p> <p id="child-1-text-hero"> Já tem conta?</p>
+        <button id="child-1-button-hero" (click)="redirectToLogin()">ACESSAR <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="child-2-hero">
+        <div class="form-section">
+            <form class="hero-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <h1 id="form-title">Peça sua conta e cartão de crédito do Gama Bank</h1>
+
+                <div class="form-group">
+                    <input autocomplete="off" type="text" class="form-control" placeholder="Digite seu CPF" 
+                    [(ngModel)]="dadosCadastrais.cpf"  [class.is-invalid]="exibeErro('cpf', form)" mask="CPF_CNPJ" maxlength="14"
+                    name="cpf" #cpfInput required/>
+
+                    <div class="invalid-feedback">
+                        CPF inválido.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input autocomplete="username" type="text" class="form-control" placeholder="Login" 
+                    [(ngModel)]="dadosCadastrais.login"  [class.is-invalid]="exibeErro('login', form)"
+                    name="login" #loginInput required/>
+
+                    <div class="invalid-feedback">
+                        Login inválido.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input autocomplete="name" type="text" class="form-control" placeholder="Nome completo" 
+                    [(ngModel)]="dadosCadastrais.nome"  [class.is-invalid]="exibeErro('name', form)"
+                    name="name" #nomeInput required/>
+
+                    <div class="invalid-feedback">
+                        Nome inválido.
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input autocomplete="new-password" type="password" class="form-control" placeholder="Digite sua senha" 
+                    [(ngModel)]="dadosCadastrais.senha"  [class.is-invalid]="exibeErro('senha', form)"
+                    name="senha" #senhaInput minlength="3" required/>
+
+                    <div class="invalid-feedback">
+                        Senha inválida.
+                        <p *ngIf="form.controls.senha?.errors?.minlength"> Sua senha deve conter no mínimo 3 caracteres. </p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirme" 
+                    [(ngModel)]="senha2"  [class.is-invalid]="exibeErro('senha2', form)"
+                    name="senha2" #senhaInput2 minlength="3" required/>
+
+                    <div class="invalid-feedback">
+                        Senha inválida.
+                        <p *ngIf="form.controls.senha?.errors?.minlength"> Sua senha deve conter no mínimo 3 caracteres. </p>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger mt-3" *ngIf="erro">
+                    {{ mensagemErro || 'Ops, algo deu errado!' }}
+                  </div>
+
+                <input id= "input-button" type="submit" placeholder="continuar" name="continuar" value="Criar Conta" 
+                *ngIf="!isLoading; else spinner"
+                />
+
+                <ng-template #spinner>
+                    <div class="container text-center">
+                        <div class="spinner-border mt-3" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <p class="text-light mt-1">Loading...</p>
+                    </div>
+                </ng-template> 
+            </form>
+        </div>
+    </div>
+</div>
+<ng-template #usuarioCriadoBlock>
+    <h1> {{ dadosCadastrais.nome }}, seja bem-vindo! </h1>
+    <p>
+      Sua conta foi criada com sucesso. <a routerLink="/login">Faça login aqui.</a>
+    </p>
+</ng-template>
